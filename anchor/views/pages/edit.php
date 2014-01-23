@@ -15,9 +15,10 @@
 			)); ?>
 
 			<aside class="buttons">
-				<?php echo Form::button(__('global.save'), array(
+				<?php echo Form::button(__('global.update'), array(
 					'type' => 'submit',
-					'class' => 'btn'
+					'class' => 'btn',
+					'data-loading' => __('global.updating')
 				)); ?>
 
 				<?php echo Form::button(__('pages.redirect'), array(
