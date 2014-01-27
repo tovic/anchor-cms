@@ -17,9 +17,9 @@
 
 	<?php if($comments->count): ?>
 	<ul class="main list">
-		<?php foreach($comments->results as $comment): ?>
+		<?php foreach($comments->results as $comment): $commented_post = Post::where('id', '=', $comment->post)->get(); ?>
 		<li>
-			<a href="<?php echo Uri::to('admin/comments/edit/' . $comment->id); ?>">
+			<a href="<?php echo Uri::to('admin/comments/edit/' . $comment->id); ?>" title="<?php echo Registry::get('posts_page')->title . ': ' . $commented_post[0]->title; ?>">
 				<strong><?php echo strip_tags($comment->text); ?></strong>
 				<span><time><?php echo Date::format($comment->date); ?></time></span>
 				<span class="highlight"><?php echo $comment->status; ?></span>
